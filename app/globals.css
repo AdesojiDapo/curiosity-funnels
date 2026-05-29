@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0c0e14;
+  --paper: #f3efe7;
+  --amber: #e8a44a;
+  --amber-soft: #f3c98e;
+  --amber-deep: #d4a857;
+  --sage: #84b59f;
+  --cream: #fbf8f2;
+}
+
+html, body { background: var(--ink); color: var(--paper); }
+body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, .serif { font-family: "Fraunces", Georgia, serif; font-style: italic; letter-spacing: -0.01em; }
+
+button, input, textarea { font: inherit; color: inherit; }
+input, textarea { background: transparent; }
+
+.kbd {
+  border: 1px solid rgba(243, 239, 231, 0.18);
+  padding: 0.1rem 0.45rem;
+  border-radius: 0.35rem;
+  font-size: 0.72rem;
+  color: rgba(243, 239, 231, 0.7);
+}
+
+.dot::after {
+  content: "";
+  display: inline-block;
+  width: 0.42em; height: 0.42em;
+  border-radius: 9999px;
+  background: var(--amber);
+  margin-left: 0.18em; vertical-align: 0.18em;
+}
+
+.choice {
+  border: 1px solid rgba(243, 239, 231, 0.14);
+  background: rgba(243, 239, 231, 0.03);
+  transition: all 0.15s ease;
+}
+.choice:hover { border-color: var(--amber); background: rgba(232, 164, 74, 0.08); }
+.choice[data-selected="true"] { border-color: var(--amber); background: rgba(232, 164, 74, 0.14); }
+
+.progress-track { background: rgba(243, 239, 231, 0.1); }
+.progress-fill { background: var(--amber); transition: width 0.35s cubic-bezier(.2,.7,.2,1); }
+
+.btn-primary {
+  background: var(--amber);
+  color: var(--ink);
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.95rem 1.3rem;
+  transition: transform 0.1s ease, background 0.15s ease;
+}
+.btn-primary:hover { background: var(--amber-deep); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-ghost {
+  border: 1px solid rgba(243, 239, 231, 0.2);
+  border-radius: 9999px;
+  padding: 0.7rem 1.1rem;
+  color: var(--paper);
+}
+.btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+
+.field {
+  border: 1px solid rgba(243, 239, 231, 0.18);
+  border-radius: 0.85rem;
+  padding: 0.95rem 1rem;
+  width: 100%;
+  outline: none;
+}
+.field:focus { border-color: var(--amber); }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.step-enter { animation: slideUp 0.32s cubic-bezier(.2,.7,.2,1) both; }

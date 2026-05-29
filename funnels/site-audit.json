@@ -1,0 +1,90 @@
+{
+  "slug": "site-audit",
+  "title": "Curiosity Site Audit",
+  "subtitle": "A human-written 5-dimension site audit: security, privacy, performance, accessibility, AEO. From £499, delivered in 5 days.",
+  "brand": { "accent": "#e8a44a", "bg": "#0c0e14" },
+  "meta": { "price": "£499" },
+  "steps": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "title": "A site audit that an actual human writes. In five days.",
+      "subtitle": "Security, privacy, performance, accessibility, and AEO. £499 standard. £1,199 with a homepage redesign demo. Or move straight to a full rebuild.",
+      "cta": "See if this is for me"
+    },
+    {
+      "id": "goal",
+      "type": "single",
+      "question": "What do you want most from this audit?",
+      "field": "goal",
+      "choices": [
+        { "id": "diagnose", "label": "I just need to know what's wrong", "emoji": "🩺" },
+        { "id": "preview", "label": "Show me how a redesigned homepage could look", "emoji": "🖼️" },
+        { "id": "rebuild", "label": "I want a quote to rebuild the whole site", "emoji": "🏗️" },
+        { "id": "compliance", "label": "I need it for compliance or a sale", "emoji": "📑" }
+      ]
+    },
+    {
+      "id": "tier",
+      "type": "single",
+      "question": "Which package fits?",
+      "help": "We'll confirm once we see the site.",
+      "field": "tier",
+      "choices": [
+        { "id": "audit_499", "label": "Standard audit, £499", "emoji": "🟢" },
+        { "id": "audit_demo_1199", "label": "Audit + homepage redesign demo, £1,199", "emoji": "🟠" },
+        { "id": "web_from_2499", "label": "Skip the audit, quote a rebuild (from £2,499)", "emoji": "🔴" },
+        { "id": "unsure", "label": "Not sure yet, recommend something", "emoji": "🤔" }
+      ]
+    },
+    {
+      "id": "website",
+      "type": "text",
+      "question": "What's the site we're auditing?",
+      "field": "website",
+      "placeholder": "https://yourcompany.com",
+      "required": true
+    },
+    {
+      "id": "concerns",
+      "type": "multi",
+      "question": "What worries you most right now?",
+      "help": "Pick any that apply.",
+      "field": "concerns",
+      "min": 1,
+      "choices": [
+        { "id": "speed", "label": "Site feels slow", "emoji": "🐌" },
+        { "id": "security", "label": "Security or compliance", "emoji": "🛡️" },
+        { "id": "design", "label": "It looks dated", "emoji": "🎨" },
+        { "id": "leads", "label": "It doesn't convert", "emoji": "📉" },
+        { "id": "ai", "label": "AI tools can't read it", "emoji": "🤖" }
+      ]
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "question": "Best email for the proposal?",
+      "field": "email",
+      "cta": "Send my recommendation"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "question": "Want a quick call instead of email?",
+      "help": "Optional. We'll match you to the right package faster.",
+      "field": "phone",
+      "cta": "Call me",
+      "required": false
+    },
+    {
+      "id": "result",
+      "type": "result",
+      "title": "Thanks. Curiosity will be in touch within 1 working day.",
+      "body": "We'll review your site, recommend the right tier, and send a Stripe link if you want to start.",
+      "cta": "Email Curiosity now",
+      "href": "mailto:admin@curiositybyade.com?subject=Site%20Audit%20enquiry",
+      "secondaryCta": "Read the brochure",
+      "secondaryHref": "https://adesojidapo.github.io/site-audit-brochure/"
+    }
+  ]
+}

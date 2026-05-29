@@ -1,0 +1,78 @@
+{
+  "slug": "curiosity-web",
+  "title": "Curiosity Web",
+  "subtitle": "Websites built by Curiosity. Standard £2,499, Premium £4,995, Bespoke from £9,995. AEO, accessibility, and Core Web Vitals 95+ baked in.",
+  "brand": { "accent": "#e8a44a", "bg": "#0c0e14" },
+  "meta": { "price": "from £2,499" },
+  "steps": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "title": "A new website that ChatGPT, Claude, and Google can read.",
+      "subtitle": "AEO, WCAG 2.1 AA, and Core Web Vitals 95+ are not extras. They're the floor.",
+      "cta": "Find my tier"
+    },
+    {
+      "id": "size",
+      "type": "single",
+      "question": "How big a site do you need?",
+      "field": "size",
+      "choices": [
+        { "id": "standard", "label": "Up to 5 pages (Standard, £2,499)", "emoji": "🟢" },
+        { "id": "premium", "label": "10+ pages with CMS (Premium, £4,995)", "emoji": "🟠" },
+        { "id": "bespoke", "label": "Ecommerce or integrations (Bespoke, from £9,995)", "emoji": "🔴" },
+        { "id": "unsure", "label": "Not sure, recommend something", "emoji": "🤔" }
+      ]
+    },
+    {
+      "id": "timeline",
+      "type": "single",
+      "question": "When do you need it live?",
+      "field": "timeline",
+      "choices": [
+        { "id": "asap", "label": "Within 14 days", "emoji": "⚡" },
+        { "id": "month", "label": "Within 30 days", "emoji": "🗓️" },
+        { "id": "quarter", "label": "This quarter", "emoji": "📈" },
+        { "id": "flexible", "label": "I'm flexible", "emoji": "🌱" }
+      ]
+    },
+    {
+      "id": "current",
+      "type": "text",
+      "question": "What's your current site?",
+      "help": "We'll credit any Site Audit you've bought (£499) against this project.",
+      "field": "current_site",
+      "placeholder": "https://yourcompany.com",
+      "required": false
+    },
+    {
+      "id": "musts",
+      "type": "multi",
+      "question": "What MUST the new site do?",
+      "field": "musts",
+      "min": 1,
+      "choices": [
+        { "id": "leads", "label": "Generate leads", "emoji": "📥" },
+        { "id": "sell", "label": "Sell products or services online", "emoji": "🛒" },
+        { "id": "credibility", "label": "Look credible to enterprise buyers", "emoji": "🏛️" },
+        { "id": "aeo", "label": "Be cited by ChatGPT, Claude, Perplexity", "emoji": "🤖" },
+        { "id": "fast", "label": "Be very fast on mobile", "emoji": "📱" }
+      ]
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "question": "Where should we send the proposal?",
+      "field": "email",
+      "cta": "Get my proposal"
+    },
+    {
+      "id": "result",
+      "type": "result",
+      "title": "Locked in. Curiosity will reply within 1 working day.",
+      "body": "You'll get a fixed-price proposal matched to your tier, with timeline and what's included.",
+      "cta": "Email Curiosity now",
+      "href": "mailto:admin@curiositybyade.com?subject=Curiosity%20Web%20enquiry"
+    }
+  ]
+}
