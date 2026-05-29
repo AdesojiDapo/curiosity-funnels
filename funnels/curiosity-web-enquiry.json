@@ -1,0 +1,50 @@
+{
+  "slug": "curiosity-web-enquiry",
+  "title": "Curiosity Web enquiry",
+  "subtitle": "Three questions, then we send a proposal.",
+  "brand": { "accent": "#e8a44a", "bg": "#0c0e14" },
+  "steps": [
+    {
+      "id": "size",
+      "type": "single",
+      "question": "How big a site do you need?",
+      "field": "size",
+      "choices": [
+        { "id": "standard", "label": "Up to 5 pages (Standard, £2,499)", "emoji": "🟢" },
+        { "id": "premium", "label": "10+ pages with CMS (Premium, £4,995)", "emoji": "🟠" },
+        { "id": "bespoke", "label": "Ecommerce or integrations (Bespoke, from £9,995)", "emoji": "🔴" },
+        { "id": "unsure", "label": "Not sure, recommend something", "emoji": "🤔" }
+      ]
+    },
+    {
+      "id": "timeline",
+      "type": "single",
+      "question": "When do you need it live?",
+      "field": "timeline",
+      "choices": [
+        { "id": "asap", "label": "Within 14 days", "emoji": "⚡" },
+        { "id": "month", "label": "Within 30 days", "emoji": "🗓️" },
+        { "id": "quarter", "label": "This quarter", "emoji": "📈" },
+        { "id": "flexible", "label": "I'm flexible", "emoji": "🌱" }
+      ]
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "question": "Where should we send the proposal?",
+      "help": "You'll get a confirmation now, full proposal within 1 working day.",
+      "field": "email",
+      "cta": "Send my proposal"
+    },
+    {
+      "id": "result",
+      "type": "result",
+      "title": "Locked in. Curiosity will reply within 1 working day.",
+      "body": "You'll get a fixed-price proposal matched to your tier, with timeline and what's included. No call required unless you want one.",
+      "cta": "Email Curiosity now",
+      "href": "mailto:admin@curiositybyade.com?subject=Curiosity%20Web%20enquiry",
+      "secondaryCta": "Back to top",
+      "secondaryHref": "#top"
+    }
+  ]
+}

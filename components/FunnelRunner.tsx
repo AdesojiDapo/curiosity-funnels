@@ -5,7 +5,7 @@ import type { Funnel, Step } from "@/lib/funnel";
 
 type Answers = Record<string, string | string[]>;
 
-export default function FunnelRunner({ funnel }: { funnel: Funnel }) {
+export default function FunnelRunner({ funnel, embed = false }: { funnel: Funnel; embed?: boolean }) {
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [submitting, setSubmitting] = useState(false);
@@ -60,6 +60,31 @@ export default function FunnelRunner({ funnel }: { funnel: Funnel }) {
     } finally {
       setSubmitting(false);
     }
+  }
+
+  if (embed) {
+    return (
+      <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 max-w-phone w-full mx-auto flex flex-col">
+        <div className="flex items-center justify-between mb-3">
+          <button onClick={back} disabled={idx === 0} className="text-white/60 disabled:opacity-30 text-sm">← Back</button>
+          <div className="text-white/40 text-xs">{idx + 1}/{steps.length}</div>
+        </div>
+        <div className="h-1 rounded-full progress-track overflow-hidden mb-5">
+          <div className="h-full progress-fill" style={{ width: `${progress}%` }} />
+        </div>
+        <section key={step.id} className="step-enter flex flex-col min-h-[420px]">
+          <StepView
+            step={step}
+            answers={answers}
+            setField={setField}
+            next={next}
+            submitting={submitting}
+            submitted={submitted}
+            onCapture={submitLead}
+          />
+        </section>
+      </div>
+    );
   }
 
   return (
