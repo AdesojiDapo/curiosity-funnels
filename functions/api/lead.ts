@@ -23,14 +23,23 @@ async function sendEmail(env: Env, record: any): Promise<void> {
   const to = env.LEAD_TO || "admin@curiositybyade.com";
   const from = env.LEAD_FROM || "Curiosity Funnels <leads@curiositybyade.com>";
   const title = FUNNEL_TITLES[record.slug] || record.slug;
-  const subject = `New lead: ${title}`;
+  const utmTag = record.utm?.src || record.utm?.utm_source;
+  const subject = utmTag
+    ? `New lead [${utmTag}]: ${title}`
+    : `New lead: ${title}`;
   const answers = formatAnswers(record.answers || {});
+  const utm = record.utm && Object.keys(record.utm).length > 0
+    ? formatAnswers(record.utm)
+    : "  (none — direct or untagged)";
   const text = [
     `New funnel lead.`,
     ``,
     `Funnel: ${title}`,
     `When: ${record.receivedAt}`,
     `ID: ${record.id}`,
+    ``,
+    `Source:`,
+    utm,
     ``,
     `Answers:`,
     answers,

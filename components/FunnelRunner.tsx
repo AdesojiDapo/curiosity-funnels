@@ -5,20 +5,57 @@ import type { Funnel, Step } from "@/lib/funnel";
 
 type Answers = Record<string, string | string[]>;
 
+type Utm = Record<string, string>;
+
+const UTM_KEYS = [
+  "src",
+  "prospect",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term"
+];
+
+function readUtm(): Utm {
+  if (typeof window === "undefined") return {};
+  const out: Utm = {};
+  const params = new URLSearchParams(window.location.search);
+  UTM_KEYS.forEach((k) => {
+    const v = params.get(k);
+    if (v) out[k] = v;
+  });
+  const ref = document.referrer;
+  if (ref) out.referrer = ref;
+  return out;
+}
+
 export default function FunnelRunner({ funnel, embed = false }: { funnel: Funnel; embed?: boolean }) {
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [utm, setUtm] = useState<Utm>({});
 
   const key = `cf:answers:${funnel.slug}`;
+  const utmKey = `cf:utm:${funnel.slug}`;
 
   useEffect(() => {
     try {
       const raw = typeof window !== "undefined" ? window.localStorage.getItem(key) : null;
       if (raw) setAnswers(JSON.parse(raw));
     } catch {}
-  }, [key]);
+    try {
+      const fresh = readUtm();
+      if (Object.keys(fresh).length > 0) {
+        setUtm(fresh);
+        window.localStorage.setItem(utmKey, JSON.stringify(fresh));
+      } else {
+        const cached = window.localStorage.getItem(utmKey);
+        if (cached) setUtm(JSON.parse(cached));
+      }
+    } catch {}
+  }, [key, utmKey]);
 
   useEffect(() => {
     try {
@@ -50,6 +87,7 @@ export default function FunnelRunner({ funnel, embed = false }: { funnel: Funnel
         body: JSON.stringify({
           slug: funnel.slug,
           answers: { ...answers, ...extra },
+          utm,
           ts: new Date().toISOString(),
           ua: navigator.userAgent
         })
